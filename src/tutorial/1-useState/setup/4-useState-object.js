@@ -1,21 +1,22 @@
 import React, { useState } from "react";
 
 const UseStateObject = () => {
-  const [person, setPerson] = useState({
-    name: "Peter",
-    age: 24,
-    message: "Random Messeage",
-  });
+  const [name, setName] = useState("Peter");
+  const [age, setAge] = useState(24);
+  const [message, setMessage] = useState("Random Message");
+
   const changeMessage = () => {
-    setPerson({ ...person, message: "Hello World" });
+    setName("Anderson");
+    setAge(27);
+    setMessage("Hello World");
   };
   return (
     <React.Fragment>
-      <h3>{person.name}</h3>
-      <h3>{person.age}</h3>
-      <h3>{person.message}</h3>
+      <h3>{name}</h3>
+      <h3>{age}</h3>
+      <h3>{message}</h3>
       <button className="btn" onClick={changeMessage}>
-        Change Message
+        Change Info
       </button>
     </React.Fragment>
   );
