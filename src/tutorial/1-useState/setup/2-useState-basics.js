@@ -3,7 +3,11 @@ import React, { useState } from "react";
 const UseStateBasics = () => {
   const [text, setText] = useState("Title unchanged");
   const handleClick = () => {
-    setText("Title Changed");
+    if (text === "Title unchanged") {
+      setText("Title Changed");
+    } else {
+      setText("Title unchanged");
+    }
   };
   return (
     <React.Fragment>
