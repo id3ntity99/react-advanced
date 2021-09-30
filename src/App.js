@@ -1,10 +1,10 @@
 import React from "react";
-import Project from "./projects/1-basic-project";
+import Setup from "./tutorial/2-useEffect/setup/1-useEffect-basics";
 
 function App() {
   return (
     <div className="container">
-      <Project />
+      <Setup />
     </div>
   );
 }

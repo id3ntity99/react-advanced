@@ -3,13 +3,19 @@ import React, { useState, useEffect } from "react";
 // useEffect runs side-effect after rerender.
 // cleanup function
 // second parameter
+
+// We can't call hooks with coonditionals.
 const UseEffectBasics = () => {
   const [value, setValue] = useState(0);
+
   useEffect(() => {
     console.log("Call useEffect");
-    document.title = `New Messages(${value})`;
+    if (value >= 1) {
+      document.title = `New Messages(${value})`;
+    }
   });
   console.log("Components rerendered");
+
   return (
     <React.Fragment>
       <h1>{value}</h1>
