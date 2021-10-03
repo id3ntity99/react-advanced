@@ -13,7 +13,7 @@ const UseEffectBasics = () => {
     if (value >= 1) {
       document.title = `New Messages(${value})`;
     }
-  });
+  }, [value]);
   console.log("Components rerendered");
 
   return (
