@@ -9,10 +9,23 @@ import React, { useState } from "react";
 const ControlledInputs = () => {
   const [firstName, setFristName] = useState("");
   const [email, setEmail] = useState("");
+  const [people, setPeople] = useState([]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(firstName, email);
+    if (firstName && email) {
+      const person = { id: new Date().getTime().toString(), firstName, email }; // This ES6 syntax is exactly same as the object below.
+      //const person = { firstName: firstName, eamil: email };
+      setPeople((people) => {
+        return [...people, person];
+      });
+
+      // set Firstname and Email to empty string just for latter use.
+      setFristName("");
+      setEmail("");
+    } else {
+      console.log("empty values in inputs");
+    }
   };
 
   return (
@@ -42,6 +55,15 @@ const ControlledInputs = () => {
         </div>
         <button type="submit">Add person</button>
       </form>
+      {people.map((person) => {
+        const { id, firstName, email } = person; // This also is Javascript's syntax, not React specific.
+        return (
+          <div key={id} className="item">
+            <h4>{firstName}</h4>
+            <p>{email}</p>
+          </div>
+        );
+      })}
     </article>
   );
 };
