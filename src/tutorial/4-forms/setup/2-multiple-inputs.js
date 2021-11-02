@@ -22,7 +22,9 @@ const ControlledInputs = () => {
     event.preventDefault();
     if (person.firstName && person.email && person.age) {
       const newPerson = { ...person, id: new Date().getTime().toString() };
-      setPeople([...people, newPerson]);
+      setPeople((people) => {
+        return [...people, newPerson];
+      });
       setPerson({ firstName: "", email: "", age: "" });
     }
   };
